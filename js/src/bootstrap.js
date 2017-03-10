@@ -1,6 +1,7 @@
 $(document).ready(function () {
-  if (themeConfig.fancybox.enable) {
-    Theme.fancybox.register();
-  }
-  Theme.backToTop.register();
+  Even.backToTop();
+  Even.mobileNavbar();
+
+  CONFIG.toc && Even.toc();
+  CONFIG.fancybox && Even.fancybox();
 });
