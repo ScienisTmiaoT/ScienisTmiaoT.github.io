@@ -69,6 +69,16 @@
 
   
 
+  <script type="text/javascript">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-93454941-1', 'auto');
+        ga('send', 'pageview');
+  </script>
+
 
 
     <title> Faster RCNN - 错误汇总 - Marvin </title>
@@ -168,16 +178,6 @@
         
   <div class="comments" id="comments">
     
-    <div style="text-align:center;">
-        <button class="btn" id="load-disqus" onclick="disqus.load();">加载 Disqus 评论</button>
-    </div>
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
-    
   </div>
 
 
@@ -209,37 +209,6 @@
       </div>
     </div>
     
-
-<script type="text/javascript">
-  var disqus_shortname = 'marvin';
-  var disqus_identifier = '2017/03/10/Faster-RCNN-错误汇总/';
-
-  var disqus_title = "Faster RCNN - 错误汇总";
-
-
-  var disqus = {
-    load : function disqus(){
-        if(typeof DISQUS !== 'object') {
-          (function () {
-          var s = document.createElement('script'); s.async = true;
-          s.type = 'text/javascript';
-          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-          (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-          }());
-          $('#load-disqus').remove(); ///加载后移除按钮
-        }
-    }
-  }
-
-  
-    var disqus_config = function () {
-        this.page.url = disqus_url;
-        this.page.identifier = disqus_identifier;
-        this.page.title = disqus_title;
-    };
-  
-
-</script>
 
 
     
