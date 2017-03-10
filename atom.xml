@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="guowb.xyz/"/>
-  <updated>2017-03-10T11:03:53.349Z</updated>
+  <updated>2017-03-10T11:05:28.174Z</updated>
   <id>guowb.xyz/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="guowb.xyz/2017/03/10/Faster-RCNN-%E9%94%99%E8%AF%AF%E6%B1%87%E6%80%BB/"/>
     <id>guowb.xyz/2017/03/10/Faster-RCNN-错误汇总/</id>
     <published>2017-03-10T09:51:10.000Z</published>
-    <updated>2017-03-10T11:03:53.349Z</updated>
+    <updated>2017-03-10T11:05:28.174Z</updated>
     
     <content type="html"><![CDATA[<p> 你要知道，我的导师是研究光电技术的，我在实验室搬砖的项目和图像识别相关，当时经过我的筛选后，我选择了Faster RCNN这个开源框架来识别各种纷繁复杂（黑白分明）的OCT图像，OCT的全称是Optical Coherence Tomography，也就是光学相干断层成像，它和大家熟悉的CT成像（计算机断层扫描）是属于一个范畴的技术，OCT的主要优点在于对人体的伤害小（相对于CT成像而言）。</p>
 <p>Faster RCNN是一个图像识别的工具，基于CNN，具有更快的速度，它不仅可以识别出图像中的物体，还可以用矩形框定位该物体并给出置信度。初期，实验室老师给了我少量图像让我识别，我手动标注了几百张，训练之后测试效果还不错。过了一段时间，老师得到了更多的数据，此时手动标注显然是不现实的，因为所有图片加起来有几千张，我一天最多能标注几百张而已，而且标注之后我感到很想睡觉，困乏无力，于是我将整张图片当作单个物体的区域，坐标类似于<code>(0, 0, length, width)</code>的形式，然后将图片放进去训练，没想到在训练的第一阶段就出现错误了。</p>
