@@ -300,13 +300,13 @@ hr {
   margin: 40px 0;
   height: 3px;
   border: none;
-  background-color: #ddd;
+  background-color: #ffe4b5;
   background-image: repeating-linear-gradient(-45deg, #fff, #fff 4px, transparent 4px, transparent 8px);
 }
 blockquote {
   padding: 0 15px;
   color: #666;
-  border-left: 4px solid #ddd;
+  border-left: 4px solid #ffe4b5;
 }
 blockquote cite::before {
   content: "-";
@@ -392,7 +392,7 @@ table {
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
-  border: 1px solid #ddd;
+  border: 1px solid #ffe4b5;
   font-size: 14px;
   table-layout: fixed;
   word-wrap: break-all;
@@ -413,7 +413,7 @@ td {
 }
 th,
 td {
-  border-bottom: 3px solid #ddd;
+  border-bottom: 3px solid #ffe4b5;
   border-right: 1px solid #eee;
 }
 th {
@@ -1052,7 +1052,7 @@ pre .javascript .function {
     margin: 0 -10px;
     padding: 0 10px;
     clear: both;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid #ffe4b5;
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
@@ -1193,7 +1193,7 @@ pre .javascript .function {
   box-sizing: border-box;
   margin: auto;
   padding: 3px;
-  border: 1px solid #ddd;
+  border: 1px solid #ffe4b5;
 }
 .posts-expand .fancybox img {
   margin: 0 auto;
@@ -1698,7 +1698,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff2185;
+  background: #b8c785;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2510,7 +2510,7 @@ embed {
     width: 100%;
     padding: 0;
     background: #fff;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #ffe4b5;
     z-index: 1;
   }
 }
