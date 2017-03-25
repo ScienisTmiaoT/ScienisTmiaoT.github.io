@@ -4,6 +4,28 @@
   
     
     <entry>
+      <title><![CDATA[Git Permission Denied]]></title>
+      <url>guowb.xyz/2017/03/25/Git-Permission-Denied/</url>
+      <content type="html"><![CDATA[<p>今天打算在Visual Studio里面使用Git，以前我都是直接用命令行或者客户端，然而一旦遇到文件加锁或者权限问题就无法在两个客户端都打开的情况下进行同步。我使用的是Visual Studio 2017，当我试着提交一些更改的时候出现了一个错误：<code>git failed with a fatal error permission denied unable to process</code> 大致就和<a href="http://stackoverflow.com/questions/34975423/visual-studio-2015-git-error-opensomefile-vc-opendb-permission-denied-fa" target="_blank" rel="external">这个网页</a>描述的问题一致。</p>
+<p>解决方案也是更改.gitignore文件，忽略.opendb，或者直接从<a href="https://github.com/github/gitignore" target="_blank" rel="external">这个网站</a>下载Visual Studio的.gitignore文件。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 编程工具 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> GIT </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[浅谈正则表达式]]></title>
       <url>guowb.xyz/2017/03/11/%E6%B5%85%E8%B0%88%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
       <content type="html"><![CDATA[<p>我不想让你在看到这个标题的时候就下意识地以为我又要罗列一大堆正则表达式的语法，这样就显得太无聊了，当然，我现在这种谈论无聊的资本主要是建立在别人的辛勤耕耘上——你尽可以在网络上搜索到一堆正则表达式的教程，泛滥在信息的海洋里，通过二进制的姿态传输到你的内存，纤毫毕现地在屏幕上勾勒着那些单调与乏味。</p>
