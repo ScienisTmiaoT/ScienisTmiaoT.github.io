@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="guowb.xyz/"/>
-  <updated>2017-03-25T05:00:51.205Z</updated>
+  <updated>2017-03-25T05:02:39.621Z</updated>
   <id>guowb.xyz/</id>
   
   <author>
@@ -20,10 +20,10 @@
     <link href="guowb.xyz/2017/03/25/Git-Permission-Denied/"/>
     <id>guowb.xyz/2017/03/25/Git-Permission-Denied/</id>
     <published>2017-03-25T04:51:55.000Z</published>
-    <updated>2017-03-25T05:00:51.205Z</updated>
+    <updated>2017-03-25T05:02:39.621Z</updated>
     
     <content type="html"><![CDATA[<p>今天打算在Visual Studio里面使用Git，以前我都是直接用命令行或者客户端，然而一旦遇到文件加锁或者权限问题就无法在两个客户端都打开的情况下进行同步。我使用的是Visual Studio 2017，当我试着提交一些更改的时候出现了一个错误：<code>git failed with a fatal error permission denied unable to process</code> 大致就和<a href="http://stackoverflow.com/questions/34975423/visual-studio-2015-git-error-opensomefile-vc-opendb-permission-denied-fa" target="_blank" rel="external">这个网页</a>描述的问题一致。</p>
-<p>解决方案也是更改.gitignore文件，忽略.opendb，或者直接从<a href="https://github.com/github/gitignore" target="_blank" rel="external">这个网站</a>下载Visual Studio的.gitignore文件。</p>
+<p>解决方法就是更改.gitignore文件，忽略.opendb，或者直接从<a href="https://github.com/github/gitignore" target="_blank" rel="external">这个网站</a>下载Visual Studio的.gitignore文件。</p>
 ]]></content>
     
     <summary type="html">
