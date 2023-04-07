@@ -42,31 +42,24 @@
 				}
 			</style>
 
-	<link rel="canonical" href="https://scienistmiaot.github.io/faster-rcnn-cuo-wu-hui-zong/" />
+	<meta name="description" content="你要知道，我的导师是研究光电技术的，我在实验室搬砖的项目和图像识别相关，当时我选择了Faster RCNN这个开源框架来识别各种纷繁复杂（黑白分明）的OCT图像" />
+    <link rel="canonical" href="https://scienistmiaot.github.io/faster-rcnn-cuo-wu-hui-zong/" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     
     <meta property="og:site_name" content="Memolog" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Faster RCNN - 错误汇总" />
-    <meta property="og:description" content="你要知道，我的导师是研究光电技术的，我在实验室搬砖的项目和图像识别相关，当时我选择了Faster RCNN这个开源框架来识别各种纷繁复杂（黑白分明）的OCT图像，OCT的全称是Optical Coherence Tomography，也就是光学相干断层成像，它和大家熟悉的CT成像（计算机断层扫描）是属于一个范畴的技术，OCT的主要优点在于对人体的伤害小（相对于CT成像而言）。
-
-Faster RCNN是一个图像识别的工具，基于CNN，具有更快的速度，它不仅可以识别出图像中的物体，还可以用矩形框定位该物体并给出置信度。初期，实验室老师给了我少量图像让我识别，我手动标注了几百张，训练之后测试效果还不错。过了一段时间，老师得到了更多的数据，此时手动标注显然是不现实的，因为所有图片加起来有几千张，我一天最多能标注几百张而已，而且标注之后我感到很想睡觉，困乏无力，于是我将整张图片当作单个物体的区域，坐标类似于(0, 0, length, width)的形式，然后将图片放进去训练，没想到在训练的第一阶段就出现错误了。
-
-错误的具体信息我记不得了，当时也没有截图，都是Python的一些错误提示（没错" />
+    <meta property="og:description" content="你要知道，我的导师是研究光电技术的，我在实验室搬砖的项目和图像识别相关，当时我选择了Faster RCNN这个开源框架来识别各种纷繁复杂（黑白分明）的OCT图像" />
     <meta property="og:url" content="https://scienistmiaot.github.io/faster-rcnn-cuo-wu-hui-zong/" />
     <meta property="og:image" content="https://images.unsplash.com/photo-1680675805063-3aa8b3607b0a?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8YWxsfDk0fHx8fHx8Mnx8MTY4MDgzNTczNQ&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000" />
     <meta property="article:published_time" content="2017-03-10T00:00:00.000Z" />
-    <meta property="article:modified_time" content="2023-04-07T02:52:09.000Z" />
+    <meta property="article:modified_time" content="2023-04-07T03:17:40.000Z" />
     <meta property="article:tag" content="计算机视觉" />
     
     <meta property="article:publisher" content="https://www.facebook.com/ghost" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Faster RCNN - 错误汇总" />
-    <meta name="twitter:description" content="你要知道，我的导师是研究光电技术的，我在实验室搬砖的项目和图像识别相关，当时我选择了Faster RCNN这个开源框架来识别各种纷繁复杂（黑白分明）的OCT图像，OCT的全称是Optical Coherence Tomography，也就是光学相干断层成像，它和大家熟悉的CT成像（计算机断层扫描）是属于一个范畴的技术，OCT的主要优点在于对人体的伤害小（相对于CT成像而言）。
-
-Faster RCNN是一个图像识别的工具，基于CNN，具有更快的速度，它不仅可以识别出图像中的物体，还可以用矩形框定位该物体并给出置信度。初期，实验室老师给了我少量图像让我识别，我手动标注了几百张，训练之后测试效果还不错。过了一段时间，老师得到了更多的数据，此时手动标注显然是不现实的，因为所有图片加起来有几千张，我一天最多能标注几百张而已，而且标注之后我感到很想睡觉，困乏无力，于是我将整张图片当作单个物体的区域，坐标类似于(0, 0, length, width)的形式，然后将图片放进去训练，没想到在训练的第一阶段就出现错误了。
-
-错误的具体信息我记不得了，当时也没有截图，都是Python的一些错误提示（没错" />
+    <meta name="twitter:description" content="你要知道，我的导师是研究光电技术的，我在实验室搬砖的项目和图像识别相关，当时我选择了Faster RCNN这个开源框架来识别各种纷繁复杂（黑白分明）的OCT图像" />
     <meta name="twitter:url" content="https://scienistmiaot.github.io/faster-rcnn-cuo-wu-hui-zong/" />
     <meta name="twitter:image" content="https://images.unsplash.com/photo-1680675805063-3aa8b3607b0a?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8YWxsfDk0fHx8fHx8Mnx8MTY4MDgzNTczNQ&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000" />
     <meta name="twitter:label1" content="Written by" />
@@ -95,13 +88,19 @@ Faster RCNN是一个图像识别的工具，基于CNN，具有更快的速度，
     "author": {
         "@type": "Person",
         "name": "Marvin",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://scienistmiaot.github.io/content/images/2023/04/img.jpg",
+            "width": 2000,
+            "height": 1993
+        },
         "url": "https://scienistmiaot.github.io/author/marvin/",
         "sameAs": []
     },
     "headline": "Faster RCNN - 错误汇总",
     "url": "https://scienistmiaot.github.io/faster-rcnn-cuo-wu-hui-zong/",
     "datePublished": "2017-03-10T00:00:00.000Z",
-    "dateModified": "2023-04-07T02:52:09.000Z",
+    "dateModified": "2023-04-07T03:17:40.000Z",
     "image": {
         "@type": "ImageObject",
         "url": "https://images.unsplash.com/photo-1680675805063-3aa8b3607b0a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8YWxsfDk0fHx8fHx8Mnx8MTY4MDgzNTczNQ&ixlib=rb-4.0.3&q=80&w=2000",
@@ -109,7 +108,7 @@ Faster RCNN是一个图像识别的工具，基于CNN，具有更快的速度，
         "height": 1333
     },
     "keywords": "计算机视觉",
-    "description": "你要知道，我的导师是研究光电技术的，我在实验室搬砖的项目和图像识别相关，当时我选择了Faster RCNN这个开源框架来识别各种纷繁复杂（黑白分明）的OCT图像，OCT的全称是Optical Coherence Tomography，也就是光学相干断层成像，它和大家熟悉的CT成像（计算机断层扫描）是属于一个范畴的技术，OCT的主要优点在于对人体的伤害小（相对于CT成像而言）。\n\nFaster RCNN是一个图像识别的工具，基于CNN，具有更快的速度，它不仅可以识别出图像中的物体，还可以用矩形框定位该物体并给出置信度。初期，实验室老师给了我少量图像让我识别，我手动标注了几百张，训练之后测试效果还不错。过了一段时间，老师得到了更多的数据，此时手动标注显然是不现实的，因为所有图片加起来有几千张，我一天最多能标注几百张而已，而且标注之后我感到很想睡觉，困乏无力，于是我将整张图片当作单个物体的区域，坐标类似于(0, 0, length, width)的形式，然后将图片放进去训练，没想到在训练的第一阶段就出现错误了。\n\n错误的具体信息我记不得了，当时也没有截图，都是Python的一些错误提示（没错",
+    "description": "你要知道，我的导师是研究光电技术的，我在实验室搬砖的项目和图像识别相关，当时我选择了Faster RCNN这个开源框架来识别各种纷繁复杂（黑白分明）的OCT图像",
     "mainEntityOfPage": "https://scienistmiaot.github.io/faster-rcnn-cuo-wu-hui-zong/"
 }
     </script>
@@ -245,6 +244,9 @@ Faster RCNN是一个图像识别的工具，基于CNN，具有更快的速度，
 		<div class="post-meta">
 			<div class="post-meta-avatars">
 					<figure class="post-meta-avatar avatar">
+						<a href="/author/marvin/" class="author-avatar">
+								<img class="author-profile-image" src="/content/images/2023/04/img.jpg" alt="Marvin" />
+						</a>
 					</figure>
 			</div>
 			<h4 class="post-meta-author"><a href="/author/marvin/">Marvin</a></h4>
@@ -300,12 +302,12 @@ Faster RCNN是一个图像识别的工具，基于CNN，具有更快的速度，
 
 			<aside class="post-nav">
 
-					<a class="post-nav-next" href="/coming-soon/">
+					<a class="post-nav-next" href="/qian-tan-zheng-ze-biao-da-shi-2/">
 						<section class="post-nav-teaser">
 							<i class="icon icon-arrow-left" aria-label="Next post"></i>
-							<h2 class="post-nav-title">Coming soon</h2>
-							<p class="post-nav-excerpt">This is Memolog, a brand new site by Marvin that's just getting&hellip;</p>
-							<p class="post-nav-meta"><time datetime="07-04-2023">07 Apr 2023</time></p>
+							<h2 class="post-nav-title">浅谈正则表达式</h2>
+							<p class="post-nav-excerpt">我不想让你在看到这个标题的时候就下意识地以为我又要罗列一大堆正则表达式的语法，这样就显得太无聊了，当然，我现在这种谈论无聊的资本主要是建立在别人的辛勤耕耘上&hellip;</p>
+							<p class="post-nav-meta"><time datetime="11-03-2017">11 Mar 2017</time></p>
 						</section>
 					</a>
 
