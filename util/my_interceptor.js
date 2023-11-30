@@ -40,6 +40,9 @@ const config = {
             return originalFetch(new_url, options);
         } else {
             console.log("this url is blacklisted: " + url);
+            // return originalFetch(url, options).then(response => {
+            //     return modifyResponse(response);
+            //   });
         }
     };
 })();
@@ -74,4 +77,14 @@ function is_blacklisted(url) {
         }
     }
     return false;
+}
+
+function modifyResponse(response) {
+    const modifiedBody = JSON.stringify({});
+    const modifiedHeaders = new Headers(response.headers);
+    const modifiedStatus = 200;
+    return new Response(modifiedBody, {
+        status: modifiedStatus,
+        headers: modifiedHeaders,
+    });
 }
