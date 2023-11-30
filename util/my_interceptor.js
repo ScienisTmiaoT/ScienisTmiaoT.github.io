@@ -16,7 +16,7 @@ const config = {
                 "new_suffix": "tags.json"
             }
         ],
-        "blacklist": ["/members/api/member/", "/ghost/api/content/"]
+        "blacklist": ["/api/"]
     }
 };
 
