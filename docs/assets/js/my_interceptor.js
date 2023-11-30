@@ -1,1 +1,43 @@
-const config={script_path:"/assets/js/my_interceptor.js",script_id:"my_interceptor",intercept:{url:"/ghost/api/content/",list:[{old_suffix:"posts",new_suffix:"posts.json"},{old_suffix:"authors",new_suffix:"authors.json"},{old_suffix:"tags",new_suffix:"tags.json"}]}}(function(i,t){renew_script(),XMLHttpRequest.prototype.open=function(t,e,s,n,r){i.call(this,t,replace_urls(e),s,n,r)}})(XMLHttpRequest.prototype.open,XMLHttpRequest.prototype.send);function renew_script(){document.getElementById(config.script_id).src=config.script_path+"?v="+Date.now()}function replace_urls(t){var e,s=config.intercept;for(e of s.list){var n=s.url+e.old_suffix,r=s.url+e.new_suffix;if(-1!=t.indexOf(n))return replace_url(t,n,r)}return t}function replace_url(t,e,s){e=t.indexOf(e);return t.substring(0,e)+s}
+const config = {
+    "script_path": "/assets/js/my_interceptor.js",
+    "script_id": "my_interceptor",
+    "intercept": {
+        "url": "/ghost/api/content/",
+        "list": [{"old_suffix": "posts", "new_suffix": "posts.json"},
+        {"old_suffix": "authors", "new_suffix": "authors.json"},
+        {"old_suffix": "tags", "new_suffix": "tags.json"}]
+    }
+}
+
+(function Interceptor(nativeOpenWrapper, nativeSendWrapper) {
+    renew_script();
+    XMLHttpRequest.prototype.open = function (method, url, async, user, password) {
+        nativeOpenWrapper.call(this, method, replace_urls(url), async, user, password);
+    };
+})(XMLHttpRequest.prototype.open, XMLHttpRequest.prototype.send);
+
+
+function renew_script() {
+    document.getElementById(config['script_id']).src = config['script_path'] + '?v=' + Date.now();
+}
+
+function replace_urls(url) {
+    const c = config['intercept'];
+    const suffixes = c['list'];
+    for (let i of suffixes) {
+        const path = c['url'] + i['old_suffix'];
+        const new_path = c['url'] + i['new_suffix'];
+        console.log("url: " + url + " path: " + path + " new path: " + new_path);
+        if (url.indexOf(path) != -1) {
+            return replace_url(url, path, new_path);
+        }
+    }
+    return url;
+}
+
+function replace_url(url, path, new_path) {
+    const i = url.indexOf(path);
+    const new_url = url.substring(0, i) + new_path;
+    console.log("url: " + url + " new url: " + new_url);
+    return new_url;
+}
