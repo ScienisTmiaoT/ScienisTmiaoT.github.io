@@ -58,7 +58,7 @@ function replace_url(url, path, new_path) {
 
 function is_blacklisted(url) {
     for (let i of config['intercept']['blacklist']) {
-        if (url.indexOf(path) != -1) return true;
+        if (url.indexOf(i) != -1) return true;
     }
     return false;
 }
