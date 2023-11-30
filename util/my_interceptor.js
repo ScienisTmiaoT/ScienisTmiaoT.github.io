@@ -40,6 +40,10 @@ const config = {
             return originalFetch(new_url, options);
         } else {
             console.log("this url is blacklisted: " + url);
+            return new Promise((resolve) => {
+                const fakeResponse = createFakeResponse();
+                resolve(fakeResponse);
+            });
             // return originalFetch(url, options).then(response => {
             //     return modifyResponse(response);
             //   });
@@ -87,4 +91,16 @@ function modifyResponse(response) {
         status: modifiedStatus,
         headers: modifiedHeaders,
     });
+}
+
+function createFakeResponse() {
+    const fakeBody = JSON.stringify({});
+    const fakeHeaders = new Headers({
+        'Content-Type': 'application/json',
+    });
+    const fakeResponse = new Response(fakeBody, {
+        status: 200,
+        headers: fakeHeaders,
+    });
+    return fakeResponse;
 }
