@@ -3,16 +3,32 @@ const config = {
     "script_id": "my_interceptor",
     "intercept": {
         "url": "/ghost/api/content/",
-        "list": [{"old_suffix": "posts", "new_suffix": "posts.json"},
-        {"old_suffix": "authors", "new_suffix": "authors.json"},
-        {"old_suffix": "tags", "new_suffix": "tags.json"}]
+        "list": [{
+                "old_suffix": "posts",
+                "new_suffix": "posts.json"
+            },
+            {
+                "old_suffix": "authors",
+                "new_suffix": "authors.json"
+            },
+            {
+                "old_suffix": "tags",
+                "new_suffix": "tags.json"
+            }
+        ],
+        "blacklist": ["/members/api/member/", "/ghost/api/content/"]
     }
 };
 
 (function Interceptor(nativeOpenWrapper, nativeSendWrapper) {
     renew_script();
     XMLHttpRequest.prototype.open = function (method, url, async, user, password) {
-        nativeOpenWrapper.call(this, method, replace_urls(url), async, user, password);
+        const new_url = replace_urls(url)
+        if (new_url) {
+            nativeOpenWrapper.call(this, method, new_url, async, user, password);
+        } else {
+            console.log("this url is blacklisted: " + url);
+        }
     };
 })(XMLHttpRequest.prototype.open, XMLHttpRequest.prototype.send);
 
@@ -31,11 +47,18 @@ function replace_urls(url) {
             return replace_url(url, path, new_path);
         }
     }
-    return url;
+    return is_blacklisted(url) ? '' : url;
 }
 
 function replace_url(url, path, new_path) {
     const i = url.indexOf(path);
     const new_url = url.substring(0, i) + new_path;
     return new_url;
+}
+
+function is_blacklisted(url) {
+    for (let i of config['intercept']['blacklist']) {
+        if (url.indexOf(path) != -1) return true;
+    }
+    return false;
 }
