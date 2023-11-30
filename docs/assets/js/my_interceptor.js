@@ -5,20 +5,21 @@
 })(XMLHttpRequest.prototype.open, XMLHttpRequest.prototype.send);
 
 function replaceUrls(url) {
+    console.log("intercepted url: " + url);
     const suffixes = ['posts', 'authors', 'tags'];
     for (let i of suffixes) {
-        url = replaceUrl(url, i);
+        const path = '/ghost/api/content/' + i;
+        if (url.indexOf(path) != -1) {
+            return replaceUrl(url);
+        }
     }
     return url;
 }
 
-function replaceUrl(url, suffix) {
-    const index = url.indexOf('/ghost/api/content/' + suffix);
-    if (index !== -1) {
-        const i = url.indexOf('?');
-        const new_url = url.substring(0, i) + '1.json';
-        console.log("new url: " + new_url);
-        return new_url;
-    }
+function replaceUrl(url) {
+    const i = url.indexOf('?');
+    const new_url = url.substring(0, i) + '1.json';
+    console.log("new url: " + new_url);
+    return new_url;
     return url;
 }
