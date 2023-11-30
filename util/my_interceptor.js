@@ -24,7 +24,7 @@ const config = {
     renew_script();
     XMLHttpRequest.prototype.open = function (method, url, async, user, password) {
         const new_url = replace_urls(url)
-        if (new_url) {
+        if (new_url !== undefined) {
             nativeOpenWrapper.call(this, method, new_url, async, user, password);
         } else {
             console.log("this url is blacklisted: " + url);
