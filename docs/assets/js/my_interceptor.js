@@ -8,7 +8,6 @@ function replaceUrl(url) {
     if (index !== -1) {
         const i = url.indexOf('?');
         return url.substring(0, i) + '1.json';
-    } else {
-        return url;
     }
+    return url;
 }
