@@ -16,16 +16,20 @@
 	<script type="text/javascript" src="/assets/js/my_interceptor.js"></script>
 	<script>
 		xhook.before(function (request, response) {
-    request.url = replaceUrl(request.url);
-	function replaceUrl(url) {
-    const index = url.indexOf('/ghost/api/content/posts');
-    if (index !== -1) {
-        const i = url.indexOf('?');
-        return url.substring(0, i) + '1.json';
-    }
-    return url;
-}
-});
+			console.log("intercept url: " + request.url);
+			request.url = replaceUrl(request.url);
+
+			function replaceUrl(url) {
+				const index = url.indexOf('/ghost/api/content/posts');
+				if (index !== -1) {
+					const i = url.indexOf('?');
+					const new_url = url.substring(0, i) + '1.json';
+					console.log("new url: " + new_url);
+					return new_url;
+				}
+				return url;
+			}
+		});
 	</script>
 
 	<script>
