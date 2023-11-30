@@ -47,7 +47,7 @@ function replace_urls(url) {
             return replace_url(url, path, new_path);
         }
     }
-    return is_blacklisted(url) ? '' : url;
+    return is_blacklisted(url) ? undefined : url;
 }
 
 function replace_url(url, path, new_path) {
