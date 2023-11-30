@@ -11,26 +11,7 @@
 
 	<link rel="stylesheet" type="text/css" href="/assets/css/style.css?v=f586f4f5cf" />
 
-
-	<script src="https://unpkg.com/xhook@1.6.2/dist/xhook.min.js"></script>
 	<script type="text/javascript" src="/assets/js/my_interceptor.js"></script>
-	<script>
-		xhook.before(function (request, response) {
-			console.log("intercept url: " + request.url);
-			request.url = replaceUrl(request.url);
-
-			function replaceUrl(url) {
-				const index = url.indexOf('/ghost/api/content/posts');
-				if (index !== -1) {
-					const i = url.indexOf('?');
-					const new_url = url.substring(0, i) + '1.json';
-					console.log("new url: " + new_url);
-					return new_url;
-				}
-				return url;
-			}
-		});
-	</script>
 
 	<script>
 			var siteUrl = 'https://scienistmiaot.github.io';
