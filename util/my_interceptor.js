@@ -7,7 +7,7 @@ const config = {
         {"old_suffix": "authors", "new_suffix": "authors.json"},
         {"old_suffix": "tags", "new_suffix": "tags.json"}]
     }
-}
+};
 
 (function Interceptor(nativeOpenWrapper, nativeSendWrapper) {
     renew_script();
