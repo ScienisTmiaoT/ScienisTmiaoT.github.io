@@ -32,6 +32,17 @@ const config = {
     };
 })(XMLHttpRequest.prototype.open, XMLHttpRequest.prototype.send);
 
+(function localFetch() {
+    var originalFetch = window.fetch;
+    window.fetch = function (url, options) {
+        const new_url = replace_urls(url)
+        if (new_url !== undefined) {
+            return originalFetch(new_url, options);
+        } else {
+            console.log("this url is blacklisted: " + url);
+        }
+    };
+})();
 
 function renew_script() {
     document.getElementById(config['script_id']).src = config['script_path'] + '?v=' + Date.now();
@@ -59,7 +70,6 @@ function replace_url(url, path, new_path) {
 function is_blacklisted(url) {
     for (let i of config['intercept']['blacklist']) {
         if (url.indexOf(i) != -1) {
-            console.log("find a blacklist: " + url);
             return true;
         }
     }
