@@ -1,4 +1,5 @@
 (function Interceptor(nativeOpenWrapper, nativeSendWrapper) {
+    document.getElementById('my_interceptor').src = '/assets/js/my_interceptor.js' + '?v=' + Date.now();
     XMLHttpRequest.prototype.open = function (method, url, async, user, password) {
         nativeOpenWrapper.call(this, method, replaceUrls(url), async, user, password);
     };
