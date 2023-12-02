@@ -1,5 +1,5 @@
 User-agent: *
-Sitemap: https://scienistmiaot.github.io/sitemap.xml
+Sitemap: https://memolog.us/sitemap.xml
 Disallow: /ghost/
 Disallow: /p/
 Disallow: /email/
